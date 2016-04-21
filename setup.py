@@ -182,12 +182,11 @@ for i in range(0, len(args), 2):
     jarArgs.append(args[i+1])
 
 print("writing manifest.sh")
+manifest_config = "mainClass;" + conf['mainClass'] + "\njar;" + "\njar;".join(jarArgs)
+
 open(path.join(dataRoot, 'manifest.sh'), 'w').write(
-    open('manifest.sh.tpl', 'r').read().replace(
-        'MANIFEST_CONFIG',
-        "mainClass;" + conf['mainClass']
-        + "\njar;" + "\njar;".join(jarArgs)
-    )
+    open('manifest.sh.tpl', 'r').read().replace('MANIFEST_CONFIG', manifest_config)
 )
+open(path.join(dataRoot, 'manifest.txt'), 'w').write(manifest_config)
 
 print("done")

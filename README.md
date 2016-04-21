@@ -25,6 +25,8 @@ also vanilla launcher will download libraries for your OS only, use links in jso
 4. same with natives. look for `"natives"`, find jars and extract libraries to OS-specific subfolders in `data/natives`.
 they should contain `.dll`, `.so` and `.dynlib` for windows, linux and macosx respectively. don't extract `META-INF`.
 5. copy `.minecraft/versions/1.x/1.x.jar` to `data/versions`
+6. copy `.minecraft/assets` to `data/assets`. it should contain assets for your minecraft version only, because you have clean installation. usually it contains assets for all installed minecraft versions.
+7. mods, resource packs, etc goes in `data/minecraft`.
 
 ### testing
 
@@ -48,6 +50,8 @@ you may either run it on your server or locally and manually upload `manifest.tx
 if you want to have default files, which are downloaded only once and not being overwriten during update (e.g. minecraft's options.txt or servers.dat),
 create `data/_userfile/minecraft` and put them there. launcher will download them if only they are missing.
 the `_userfile` affix only used to indicate that file can be modified by user, and stripped when downloading.
+
+make `assets.zip` for `assets` folder to speed up installation a little. launcher will try to download and extract assets from it, and fallback to downloading asset files one-by-one on failure.
 
 ### forge
 

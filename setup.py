@@ -142,11 +142,11 @@ for lib in conf['libraries']:
             copy_or_download(url, src, dst)
             extract(dst)
 
-asset_file = path.join(minecraftRoot, "assets", "indexes", conf['assetIndex']['id']+'.json')
+asset_file = path.join(dataRoot, "assets", "indexes", conf['assetIndex']['id']+'.json')
 copy_or_download(
     conf['assetIndex']['url'],
-    asset_file,
-    path.join(dataRoot, "assets", "indexes", conf['assetIndex']['id']+'.json')
+    path.join(minecraftRoot, "assets", "indexes", conf['assetIndex']['id']+'.json'),
+    asset_file
 )
 data = json.load(open(asset_file))
 for obj in data['objects']:
